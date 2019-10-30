@@ -60,8 +60,8 @@ $(function () {
         });
 
         it('has at least a single entry', function () {
-            let feeds = document.querySelector('div.feed');
-            expect(feeds.children.length).toBeGreaterThan(0);
+            let feeds = document.querySelectorAll('.feed .entry');
+            expect(feeds.length).toBeGreaterThan(0);
         });
     });
 
@@ -74,17 +74,16 @@ $(function () {
             // Load the first feed
             loadFeed(0, function () {
                 feed1 = document.querySelector('div.feed').innerHTML;
-                done();
+                loadFeed(1, function () {
+                    // Load the second feed
+                    feed2 = document.querySelector('div.feed').innerHTML;
+                    done();
+                });
             });
         });
 
-        it('has new content', function (done) {
-            // Load the second feed
-            loadFeed(1, function () {
-                feed2 = document.querySelector('div.feed').innerHTML;
-                expect(feed1).not.toBe(feed2);
-                done();
-            })
+        it('has new content', function () {
+            expect(feed1).not.toBe(feed2);
         });
     });
 
