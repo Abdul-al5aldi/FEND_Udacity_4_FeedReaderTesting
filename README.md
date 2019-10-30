@@ -18,4 +18,5 @@ The required tests for the project (`RSS Feed` testing, `RSS Feed` properties, m
 ## Running the Application
 
 Application can be run by simply opening `index.html` file.
+
 Or following the link [Here](https://abdul-al5aldi.github.io/FEND_4/).
